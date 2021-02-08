@@ -37,7 +37,7 @@ public class FileHandling {
 		      fileReader.close();
 		      result =1;
 		    } catch (FileNotFoundException e) {
-		      System.out.println("Error detected");
+		      System.out.println("File not found");
 		      result=0;
 		    }
 			return result;	
