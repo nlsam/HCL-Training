@@ -1,9 +1,22 @@
 package com.hcl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Directory {
 	public static ArrayList<String> rootDirectory = new ArrayList<String>();
+	static {
+		rootDirectory.add("All about Java.pdf");
+		rootDirectory.add("Nehemiah's Biography.docx");
+	}
+	
+	public static void sortFilesinList() {
+		Collections.sort(rootDirectory);
+		System.out.println("Sorted Directory");
+		for(int index=0; index<rootDirectory.size(); index++) {
+			System.out.println(rootDirectory.get(index));
+		}
+	}
 
 	public static void addFiletoList(String name) {
 		rootDirectory.add(name);

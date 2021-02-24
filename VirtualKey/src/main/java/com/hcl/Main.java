@@ -19,7 +19,7 @@ public class Main {
 		int mainSelection=userNumberInput();
 		switch(mainSelection) {
 		case 1:
-			System.out.println("Sorted Directory");
+			Directory.sortFilesinList();
 			break;
 		case 2: 
 			secondaryMenu();
@@ -31,19 +31,26 @@ public class Main {
 		
 	}
 	public static void secondaryMenu() {
+		String fileName;
 		System.out.println("Welcome to the Secondary Menu!");
 		System.out.println("Enter the number corresponding to the menu selection");
 		System.out.println("1. Add file \n2. Delete file \n3. Search for file \n4. Return to Main Menu");
 		int secondarySelection=userNumberInput();
 		switch(secondarySelection) {
 		case 1:
-			System.out.println("Adding a file");
+			System.out.println("Enter file name to add to the directory");
+			fileName=userStringInput();
+			Directory.addFiletoList(fileName);
 			break;
 		case 2: 
-			System.out.println("Deleting a file");
+			System.out.println("Enter file name to delete from the directory");
+			fileName=userStringInput();
+			Directory.deleteFilefromList(fileName);
 		break;
 		case 3:
-			System.out.println("Searching a file");
+			System.out.println("Enter file name to search to the directory");
+			fileName=userStringInput();
+			Directory.searchFilefromList(fileName);
 			break;
 		case 4:
 			mainMenu();
