@@ -1,7 +1,10 @@
 package com.hcl;
 import java.util.Scanner;
 
+
 public class Main {
+	public static Directory key = new Directory();
+	
 	public static int userNumberInput() {
 		Scanner input = new Scanner(System.in);
 		int numberInput=input.nextInt();
@@ -40,17 +43,17 @@ public class Main {
 		case 1:
 			System.out.println("Enter file name to add to the directory");
 			fileName=userStringInput();
-			Directory.addFiletoList(fileName);
+			key.addFiletoList(fileName);
 			break;
 		case 2: 
 			System.out.println("Enter file name to delete from the directory");
 			fileName=userStringInput();
-			Directory.deleteFilefromList(fileName);
+			key.deleteFilefromList(fileName);
 		break;
 		case 3:
 			System.out.println("Enter file name to search to the directory");
 			fileName=userStringInput();
-			Directory.searchFilefromList(fileName);
+			key.searchFilefromList(fileName);
 			break;
 		case 4:
 			mainMenu();

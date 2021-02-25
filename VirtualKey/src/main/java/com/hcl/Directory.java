@@ -9,34 +9,47 @@ public class Directory {
 		rootDirectory.add("All about Java.pdf");
 		rootDirectory.add("Nehemiah's Biography.docx");
 	}
-	
+
 	public static void sortFilesinList() {
 		Collections.sort(rootDirectory);
 		System.out.println("Sorted Directory");
-		for(int index=0; index<rootDirectory.size(); index++) {
+		for (int index = 0; index < rootDirectory.size(); index++) {
 			System.out.println(rootDirectory.get(index));
 		}
 	}
 
-	public static void addFiletoList(String name) {
-		rootDirectory.add(name);
-		System.out.println(name + " added to directory.");
+	public void addFiletoList(String name) {
+		if (searchFilefromList(name) == 0) {
+			rootDirectory.add(name);
+			System.out.println(name + " added to directory.");
+		} else {
+			System.out.println("File already exists!");
+		}
 
 	}
 
-	public static void deleteFilefromList(String name) {
-		int index = rootDirectory.indexOf(name);
-		rootDirectory.remove(index);
-		System.out.println(name + " deleted from directory.");
-
+	public void deleteFilefromList(String name) {
+		if (searchFilefromList(name) == 1) {
+			int index = rootDirectory.indexOf(name);
+			rootDirectory.remove(index);
+			System.out.println(name + " deleted from directory.");
+		}
 	}
 
-	public static void searchFilefromList(String name) {
+	public int searchFilefromList(String name) {
+		int result =0;
+		if(rootDirectory.size()<0) {
 		if (rootDirectory.contains(name)) {
 			System.out.println(name + " was found in directory.");
+			result=1;
 		} else {
 			System.out.println("The filewas not found in directory.");
 		}
 	}
-
+		else {
+			System.out.println("Directory is empty!");
+		}
+	
+	return result;
+}
 }
