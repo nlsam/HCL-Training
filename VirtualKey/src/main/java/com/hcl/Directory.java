@@ -44,7 +44,7 @@ public class Directory {
 				System.out.println(name + " was found in directory.");
 				result = 1;
 			} else {
-				System.out.println("The filewas not found in directory.");
+				System.out.println("The file was not found in directory.");
 			}
 		} else {
 			System.out.println("Directory is empty!");
