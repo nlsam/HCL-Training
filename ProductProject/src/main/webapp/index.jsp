@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Welcome to Nehemiah's Fashion Store </h1>
- <form action ="FashionDetails" method="get">
+ <form action ="FashionDetails" method="post">
  <label for="productid">Enter Product ID:</label><br>
  <input type="number" id="productID" name="productID" > <br>
  <input type="submit" value="Click for results"><br>
