@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,6 @@ public class LoginPage extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			PrintWriter out = response.getWriter();
-			//out.println("<html><body>");
 			String newUsername = request.getParameter("newusername");
 			String newPassword = request.getParameter("newpassword");
 			SessionFactory factory = HibernateUtil.getSessionFactory();
@@ -56,21 +56,25 @@ public class LoginPage extends HttpServlet {
 			LogicalExpression andExp = Restrictions.and(username, passwords);
 			search.add(andExp);
 			List<EUser> results = search.list();
-			if (results.size() == 0) {
-				out.println("Invalid Credentials!");
-			} else {
-				response.sendRedirect("landing.jsp");
-				out.println("<html><h2>");
-				for (EUser p : results) {
-					out.println(" Welcome " + p.getFirstname() + " " + p.getLastname() + " !");
-				}
-				out.println("</h2></html>");
-
-			}
-
 			t.commit();
+			String firstName=null;
+			String lastName=null;
+			if (results.size() == 0) {
+				out.println("<html><body>");
+				out.println("Invalid Credentials!");
+				out.println("</body></html>");
+			} else {
+				    for (EUser p: results) {
+					firstName= p.getFirstname(); 
+					lastName= p.getLastname();
+				    }
+				    
+				request.setAttribute("fname", firstName);
+				request.setAttribute("lname", lastName);
+				RequestDispatcher dispatcher =request.getRequestDispatcher("landing.jsp");
+				dispatcher.forward(request, response);
+			}
 			session.close();
-			//out.println("</body></html>");
 
 		} catch (Exception ex) {
 			throw ex;

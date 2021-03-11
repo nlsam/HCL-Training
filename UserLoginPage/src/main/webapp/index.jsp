@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Welcome to the Credential Verification Website</h1> <br>
-<p> Developed by Nehemiah Sam  </p> <br>
-<p> Already have an account?</p> <br>
+ Developed by Nehemiah Sam  <br>
+ Already have an account?<br>
  <a href="login.jsp"> Returning User</a> <br>
- <p> Create an account </p> <br>
+  Create an account <br>
  <a href="register.jsp"> Register New Account</a> 
 </body>
 </html>

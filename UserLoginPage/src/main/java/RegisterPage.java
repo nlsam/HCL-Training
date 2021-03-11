@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +42,6 @@ public class RegisterPage extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			PrintWriter out = response.getWriter();
-			//out.println("<html><body>");
 			String newFirstName = request.getParameter("newfirstname");
 			String newLastName = request.getParameter("newlastname");
 			String newEmail = request.getParameter("newemail");
@@ -66,17 +66,17 @@ public class RegisterPage extends HttpServlet {
 				newUser.setPasswords(newPassword);
 				session.save(newUser);
 				session.getTransaction().commit();
-				session.close();
-				response.sendRedirect("landing.jsp");
-				out.println("<html><div>");
-				out.println(" Welcome " + newFirstName + " " + newLastName + " !");
-				out.println("</div></html>");
+				request.setAttribute("fname", newFirstName);
+				request.setAttribute("lname", newLastName);
+				RequestDispatcher dispatcher =request.getRequestDispatcher("landing.jsp");
+				dispatcher.forward(request, response);
+
 			} else {
 				out.println("<html><div>");
 				out.println("An account with that username and password is already active!");
 				out.println("</div></html>");
 			}
-
+			session.close();
 		} catch (Exception ex) {
 			throw ex;
 		}
