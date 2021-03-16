@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class MainController {
 	
 	 @GetMapping(value="/")
-     public String showIndexPage(ModelMap model, 
-    		 @RequestParam(value="name", required=false, defaultValue="World") String name){
-	     model.addAttribute("name", name);    
-		 return "index";
+     public String showIndexPage(ModelMap model){
+	        return "index";
      }	
 
 }

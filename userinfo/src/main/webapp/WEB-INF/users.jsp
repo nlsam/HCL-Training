@@ -34,9 +34,9 @@ table, th, td {
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name"><br>
   <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email">
+  <input type="text" id="email" name="email"><br>
   <label for="color">Favorite color:</label><br>
-  <input type="text" id="color" name="color">
+  <input type="text" id="color" name="color"><br>
   <input type="submit" value="Update">
 </form>
 

@@ -32,9 +32,7 @@ public class UserInfoService {
     public UserInfo GetUserById(int id) {
     	Optional<UserInfo> foundUser = userInfoRepository.findById(id);
     	
-    	
-    	//TODO: we need to decide how to handle a "Not Found" condition
-    	
+    	    	    	
     	if (!foundUser.isPresent()) {
     		throw new UserNotFoundException();
     	}
