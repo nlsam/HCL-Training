@@ -10,7 +10,7 @@ table, th, td {
 </head>
 <body>
 <h2>Users</h2>
-
+<br>
 <table style="float:left">
    <tr><th>ID</th><th>Name</th><th>Email</th><th>Favorite Color</th></tr>
    <c:forEach items="${users}" var="user" varStatus="count">
@@ -22,7 +22,23 @@ table, th, td {
     </tr>
   </c:forEach>
 </table>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action ="/users" method="get">
+  <label for="id">Id:</label><br>
+  <input type="text" id="id" name="id"><br>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email">
+  <label for="color">Favorite color:</label><br>
+  <input type="text" id="color" name="color">
+  <input type="submit" value="Update">
+</form>
 
 </body>
 </html>
