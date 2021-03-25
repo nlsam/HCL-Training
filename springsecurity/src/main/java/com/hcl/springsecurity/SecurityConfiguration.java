@@ -20,36 +20,28 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
-	
-	
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
 	@Autowired
-    UserDetailsService userDetailsService;
+	UserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService);
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-    	http.authorizeRequests()
-        .antMatchers("/admin").hasRole("ADMIN")
-        .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-        .antMatchers("/").permitAll()
-        .and().formLogin()
-        .and()
-        .csrf()
-        .disable();
- 
-           }
- 
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/").permitAll().anyRequest().authenticated().and().formLogin()
 
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
-    
-  
+				.failureUrl("/login?error=true").permitAll().and().logout().logoutSuccessUrl("/login?logout=true")
+				.invalidateHttpSession(true).permitAll().and().csrf().disable();
+
+	}
+
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+	}
 
 }

@@ -12,10 +12,6 @@ public class SecurityController {
 	}
 	@GetMapping("/user")
 	public String user() {
-		return("<h1>welcome User</h1>");
-	}
-	@GetMapping("/admin")
-	public String admin() {
-		return("<h1>welcome Admin</h1>");
+		return("<h1>Congratulations, You are a user!</h1>");
 	}
 }
