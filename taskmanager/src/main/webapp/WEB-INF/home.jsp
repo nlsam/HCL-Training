@@ -3,6 +3,7 @@
 <body style="background-color:darkgrey;">
 <h1 style="font-style:italic;color:black; text-align:center">Task Manager:Luxury Edition</h1>
 Welcome ${firstname} ${lastname}
+<a style="float:right" href="logout"> Logout</a>
 <div style="background-color:black; color:yellow; text-align:center">
 <a href="create"> Create a new Task</a> 
 <a href="display"> Display Tasks</a>

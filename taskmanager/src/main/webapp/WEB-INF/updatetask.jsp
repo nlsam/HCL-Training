@@ -1,6 +1,8 @@
 <html>
 <body style="background-color:darkgrey;">
 <h1 style="font-style:italic;color:black; text-align:center">Task Manager:Luxury Edition</h1>
+Welcome
+<a style="float:right" href="logout"> Logout</a>
 <div style="background-color:black; color:yellow; text-align:center">
 <a href="create"> Create a new Task</a> 
 <a href="display"> Display Tasks</a>
@@ -16,8 +18,10 @@
   <input type="date" id="startdate" name="startdate"> <br>
   <label for="enddate"> End Date</label><br>
   <input type="date" id="enddate" name="enddate"> <br>
+  <label for="description"> Description</label><br>
    <textarea name="description" rows="10" cols="30">
    </textarea><br>
+   <label for="severity"> Severity</label><br>
   <select id="severity" name="severity">
   <option value="low">Low</option>
   <option value="medium">Medium</option>

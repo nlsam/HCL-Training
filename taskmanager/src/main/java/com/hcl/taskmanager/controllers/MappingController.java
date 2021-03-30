@@ -30,5 +30,8 @@ public class MappingController {
 	public String showUpdatePage(ModelMap map) {
 		return "updatetask";
 	}
-
+	@GetMapping("/logout")
+	public String showLogOutPage(ModelMap map) {
+		return "index";
+	}
 }

@@ -6,15 +6,15 @@
 <p> Please fill out the form below to register</p>
 <form style="float:center" action="/register" method="post">
     <label for="firstname"> First Name:</label><br>
-  <input type="text" id="name" name="firstname"><br>
+  <input type="text" id="name" name="firstname" required><br>
   <label for="lastname"> Last Name:</label><br>
-  <input type="text" id="lastname" name="lastname"><br>
+  <input type="text" id="lastname" name="lastname" required><br>
   <label for="email"> Email:</label><br>
-  <input type="text" id="email" name="email"><br>
+  <input type="text" id="email" name="email" required><br>
     <label for="username"> Username:</label><br>
-  <input type="text" id="username" name="username"><br>
+  <input type="text" id="username" name="username" required><br>
     <label for="password">Password:</label><br>
-  <input type="text" id="password" name="password"><br>
+  <input type="text" id="password" name="password"required><br>
   <input type="submit" value="Register">
 </form>
 ${message}
